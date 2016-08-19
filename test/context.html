@@ -7,8 +7,23 @@
 
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <script src="../dist/sticky-kit.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+    .context {
+      position: relative;
+      height: 100%;
+      overflow: auto;
+    }
+  </style>
 </head>
 <body>
+
+<div class="context">
 
 <div class="buttons">
   <button class="attach">Attach</button>
@@ -147,10 +162,13 @@
     }
 
     function attach() {
-      $(".container .item:not(.use_manual)").stick_in_parent();
+      $(".container .item:not(.use_manual)").stick_in_parent({
+        context: $('.context'),
+      });
 
       $(".container .item.use_manual").stick_in_parent({
         parent: ".container",
+        context: $('.context'),
         spacer: ".manual_spacer"
       });
     }
@@ -202,6 +220,6 @@
 
   })();
 </script>
-
+</div>
 </body>
 </html>
