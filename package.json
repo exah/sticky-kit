@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "bump": "npm version -m \"Version: %s\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
